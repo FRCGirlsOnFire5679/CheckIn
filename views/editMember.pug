@@ -1,0 +1,114 @@
+extends layout.pug
+
+block content
+    h2 #{title}
+
+    if !member
+        h3.bg-danger Member Record Not Found
+    if member
+        form.form-horizontal(id='editMember' action='/member/edit' method='POST')
+            input#memberid(type='hidden' value=member.id)
+            div.form-group
+                label.col-sm-2.control-label(for='firstname') First Name: 
+                div.col-sm-8
+                    input#firstname.form-control(type='text' name='firstname' placeholder='Amy, Brenda, Cindy, etc.' value=member.first_name required='true')
+            div.form-group
+                label.col-sm-2.control-label(for='middleinitial') M.I.: 
+                div.col-sm-8
+                    input#middleinitial.form-control(type='text' name='middleinitial' placeholder='A, B, C, D...' value=member.middle_initial, required='false')
+            div.form-group
+                label.col-sm-2.control-label(for='lastname') Last Name: 
+                div.col-sm-8
+                    input#lastname.form-control(type='text' name='lastname' placeholder='Smith, Jones, Wojciehowicz, etc.' value=member.last_name required='true')
+            div.form-group
+                label.col-sm-2.control-label(for='personalid') Personal ID: 
+                div.col-sm-8
+                    input#personalid.form-control(type='text' name='personalid' placeholder='School ID, NCDL, etc.' value=member.personal_id required='true')
+            div.form-group
+                label.col-sm-2.control-label(for='birthdate') Birth Date: 
+                div.col-sm-8
+                    input#birthdate.form-control(type='date' name='birthdate' placeholder='MM/dd/yyyy' value=member.birth_date required='true')
+            div.form-group
+                label.col-sm-2.control-label(for='phone') Phone &#35;: 
+                div.col-sm-8
+                    input#phone.form-control(type='tel' name='phone' placeholder='###-###-####' value=member.phone required='true')
+            div.form-group
+                label.col-sm-2.control-label(for='address1') Address Line 1: 
+                div.col-sm-8
+                    input#address1.form-control(type='text' name='address1' placeholder='1313 Mockingbird Lane' value=member.address_line1 required='true')
+            div.form-group
+                label.col-sm-2.control-label(for='address2') Address Line 2: 
+                div.col-sm-8
+                    input#address2.form-control(type='text' name='address2' placeholder='P. O. Box 130' value=member.address_line2)
+            div.form-group
+                label.col-sm-2.control-label(for='city') City: 
+                div.col-sm-8
+                    input#city.form-control(type='text' name='city' placeholder='Winston-Salem' value=member.city required='true')
+            div.form-group
+                label.col-sm-2.control-label(for='usstate') State: 
+                div.col-sm-8
+                    select#usstate.form-control(name='usstate' required='true')
+                        option(value='AL' selected=(member.state == 'AL')) Alabama
+                        option(value='AK' selected=(member.state == 'AK')) Alaska
+                        option(value='AZ' selected=(member.state == 'AZ')) Arizona
+                        option(value='AR' selected=(member.state == 'AR')) Arkansas
+                        option(value='CA' selected=(member.state == 'CA')) California
+                        option(value='CO' selected=(member.state == 'CO')) Colorado
+                        option(value='CT' selected=(member.state == 'CT')) Connecticut
+                        option(value='DE' selected=(member.state == 'DE')) Delaware
+                        option(value='FL' selected=(member.state == 'FL')) Florida
+                        option(value='GA' selected=(member.state == 'GA')) Georgia
+                        option(value='HI' selected=(member.state == 'HI')) Hawaii
+                        option(value='ID' selected=(member.state == 'ID')) Idaho
+                        option(value='IL' selected=(member.state == 'IL')) Illinois
+                        option(value='IN' selected=(member.state == 'IN')) Indiana
+                        option(value='IA' selected=(member.state == 'IA')) Iowa
+                        option(value='KS' selected=(member.state == 'KS')) Kansas
+                        option(value='KY' selected=(member.state == 'KY')) Kentucky
+                        option(value='LA' selected=(member.state == 'LA')) Louisiana
+                        option(value='ME' selected=(member.state == 'ME')) Maine
+                        option(value='MD' selected=(member.state == 'MD')) Maryland
+                        option(value='MA' selected=(member.state == 'MA')) Massachusetts
+                        option(value='MI' selected=(member.state == 'MI')) Michigan
+                        option(value='MN' selected=(member.state == 'MN')) Minnesota
+                        option(value='MS' selected=(member.state == 'MS')) Mississippi
+                        option(value='MO' selected=(member.state == 'MO')) Missouri
+                        option(value='MT' selected=(member.state == 'MT')) Montana
+                        option(value='NE' selected=(member.state == 'NE')) Nebraska
+                        option(value='NV' selected=(member.state == 'NV')) Nevada
+                        option(value='NH' selected=(member.state == 'NH')) New Hampshire
+                        option(value='NJ' selected=(member.state == 'NJ')) New Jersey
+                        option(value='NM' selected=(member.state == 'NM')) New Mexico
+                        option(value='NY' selected=(member.state == 'NY')) New York
+                        option(value='NC' selected=(member.state == 'NC')) North Carolina
+                        option(value='ND' selected=(member.state == 'ND')) North Dakota
+                        option(value='OH' selected=(member.state == 'OH')) Ohio
+                        option(value='OK' selected=(member.state == 'OK')) Oklahoma
+                        option(value='OR' selected=(member.state == 'OR')) Oregon
+                        option(value='PA' selected=(member.state == 'PA')) Pennsylvania
+                        option(value='RI' selected=(member.state == 'RI')) Rhode Island
+                        option(value='SC' selected=(member.state == 'SC')) South Carolina
+                        option(value='SD' selected=(member.state == 'SD')) South Dakota
+                        option(value='TN' selected=(member.state == 'TN')) Tennessee
+                        option(value='TX' selected=(member.state == 'TX')) Texas
+                        option(value='UT' selected=(member.state == 'UT')) Utah
+                        option(value='VT' selected=(member.state == 'VT')) Vermont
+                        option(value='VA' selected=(member.state == 'VA')) Virginia
+                        option(value='WA' selected=(member.state == 'WA')) Washington
+                        option(value='WV' selected=(member.state == 'WV')) West Virginia
+                        option(value='WI' selected=(member.state == 'WI')) Wisconsin
+                        option(value='WY' selected=(member.state == 'WY')) Wyoming
+            div.form-group
+                label.col-sm-2.control-label(for='zipcode') Zip Code: 
+                div.col-sm-8
+                    input#zipcode.form-control(type='text' name='zipcode' placeholder='00000' value=member.zip_code required='true')
+            div.form-group
+                label.col-sm-2.control-label(for='email') Email: 
+                div.col-sm-8
+                    input#email.form-control(type='email' name='email' placeholder='some1@gof5679.org' value=member.email required='true')
+            button.btn.btn-primary(type='submit') Update
+
+    if errors 
+        ul
+          for error in errors
+            li!= error.msg

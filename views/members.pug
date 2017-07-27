@@ -1,0 +1,43 @@
+extends layout.pug
+
+block content
+    h2 #{title}
+  
+    a.btn.btn-primary(href='/member/add') Add Member
+
+    if member_list
+        table.table.table-striped
+            tr
+                th &nbsp;
+                th First Name
+                th Middle Initial
+                th Last Name
+                th Personal ID #
+                th Birth Date
+                th Phone #
+                th Address
+                th City
+                th State
+                th Zip Code
+                th Email
+            for member in member_list
+                tr
+                    td 
+                        a(href='/member/' + member.id) Edit
+                    td #{member.first_name}
+                    td #{member.middle_initial}
+                    td #{member.last_name}
+                    td #{member.personal_id}
+                    td #{member.birth_date}
+                    td #{member.phone}
+                    td 
+                        span #{member.address_line1}
+                        if member.address_line2
+                            br 
+                            span #{member.address_line2}
+                    td #{member.city}
+                    td #{member.state}
+                    td #{member.zip_code}
+                    td #{member.email}
+    else
+        li There are no members.

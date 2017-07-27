@@ -1,0 +1,29 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        link(href='/css/styles.css', rel='stylesheet')
+        script(src='/moment/moment.js' type='text/javascript')
+        block title
+            title #{title}
+        
+    body
+        nav.navbar.navbar-default
+            div.container-fluid
+                div.navbar-header
+                    a.navbar-brand(href='/')
+                        img(alt='Girls on Fire 5679' src='/images/favicon.png' height='20' width='20')
+                ul.nav.navbar-nav
+                    li
+                        a(href='/') Check In
+                    li
+                        a(href='/members') Manage Members
+                    li
+                        a.btn.btn.default(href='/events') Manage Events
+                    li
+                        a.btn.btn.default(href='/reports') Reports
+        block content

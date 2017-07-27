@@ -1,0 +1,110 @@
+extends layout.pug
+
+block content
+    h2 #{title}
+
+    form.form-horizontal(id='createMember' action='/member/add' method='POST')
+        div.form-group
+            label.col-sm-2.control-label(for='firstname') First Name: 
+            div.col-sm-8
+                input#firstname.form-control(type='text' name='firstname' placeholder='Amy, Brenda, Cindy, etc.' value='' required='true')
+        div.form-group
+            label.col-sm-2.control-label(for='middleinitial') M.I.: 
+            div.col-sm-8
+                input#middleinitial.form-control(type='text' name='middleinitial' placeholder='A, B, C, D...' value='', required='false')
+        div.form-group
+            label.col-sm-2.control-label(for='lastname') Last Name: 
+            div.col-sm-8
+                input#lastname.form-control(type='text' name='lastname' placeholder='Smith, Jones, Wojciehowicz, etc.' value='' required='true')
+        div.form-group
+            label.col-sm-2.control-label(for='personalid') Personal ID: 
+            div.col-sm-8
+                input#personalid.form-control(type='text' name='personalid' placeholder='School ID, NCDL, etc.' value='' required='true')
+        div.form-group
+            label.col-sm-2.control-label(for='birthdate') Birth Date: 
+            div.col-sm-8
+                input#birthdate.form-control(type='date' name='birthdate' placeholder='MM/dd/yyyy' value='' required='true')
+        div.form-group
+            label.col-sm-2.control-label(for='phone') Phone &#35;: 
+            div.col-sm-8
+                input#phone.form-control(type='tel' name='phone' placeholder='###-###-####' value='' required='true')
+        div.form-group
+            label.col-sm-2.control-label(for='address1') Address Line 1: 
+            div.col-sm-8
+                input#address1.form-control(type='text' name='address1' placeholder='1313 Mockingbird Lane' value='' required='true')
+        div.form-group
+            label.col-sm-2.control-label(for='address2') Address Line 2: 
+            div.col-sm-8
+                input#address2.form-control(type='text' name='address2' placeholder='P. O. Box 130' value='')
+        div.form-group
+            label.col-sm-2.control-label(for='city') City: 
+            div.col-sm-8
+                input#city.form-control(type='text' name='city' placeholder='Winston-Salem' value='' required='true')
+        div.form-group
+            label.col-sm-2.control-label(for='usstate') State: 
+            div.col-sm-8
+                select#usstate.form-control(name='usstate' required='true')
+                    option(value='AL') Alabama
+                    option(value='AK') Alaska
+                    option(value='AZ') Arizona
+                    option(value='AR') Arkansas
+                    option(value='CA') California
+                    option(value='CO') Colorado
+                    option(value='CT') Connecticut
+                    option(value='DE') Delaware
+                    option(value='FL') Florida
+                    option(value='GA') Georgia
+                    option(value='HI') Hawaii
+                    option(value='ID') Idaho
+                    option(value='IL') Illinois
+                    option(value='IN') Indiana
+                    option(value='IA') Iowa
+                    option(value='KS') Kansas
+                    option(value='KY') Kentucky
+                    option(value='LA') Louisiana
+                    option(value='ME') Maine
+                    option(value='MD') Maryland
+                    option(value='MA') Massachusetts
+                    option(value='MI') Michigan
+                    option(value='MN') Minnesota
+                    option(value='MS') Mississippi
+                    option(value='MO') Missouri
+                    option(value='MT') Montana
+                    option(value='NE') Nebraska
+                    option(value='NV') Nevada
+                    option(value='NH') New Hampshire
+                    option(value='NJ') New Jersey
+                    option(value='NM') New Mexico
+                    option(value='NY') New York
+                    option(value='NC' selected='selected' ) North Carolina
+                    option(value='ND') North Dakota
+                    option(value='OH') Ohio
+                    option(value='OK') Oklahoma
+                    option(value='OR') Oregon
+                    option(value='PA') Pennsylvania
+                    option(value='RI') Rhode Island
+                    option(value='SC') South Carolina
+                    option(value='SD') South Dakota
+                    option(value='TN') Tennessee
+                    option(value='TX') Texas
+                    option(value='UT') Utah
+                    option(value='VT') Vermont
+                    option(value='VA') Virginia
+                    option(value='WA') Washington
+                    option(value='WV') West Virginia
+                    option(value='WI') Wisconsin
+                    option(value='WY') Wyoming
+        div.form-group
+            label.col-sm-2.control-label(for='zipcode') Zip Code: 
+            div.col-sm-8
+                input#zipcode.form-control(type='text' name='zipcode' placeholder='00000' value='' required='true')
+        div.form-group
+            label.col-sm-2.control-label(for='email') Email: 
+            div.col-sm-8
+                input#email.form-control(type='email' name='email' placeholder='some1@gof5679.org' value='' required='true')
+        button.btn.btn-primary(type='submit') Add
+
+    if errors 
+        ul
+          for error in errors
+            li!= error.msg

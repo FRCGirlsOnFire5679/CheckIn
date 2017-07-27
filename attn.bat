@@ -1,0 +1,1 @@
+SET DEBUG=event-attendance:* & npm run devstart
